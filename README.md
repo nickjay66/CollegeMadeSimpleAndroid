@@ -1,5 +1,6 @@
-College Made Simple
-Android Application used for creating and tracking terms/course/assessments. Includes study timer with mindfulnes reminder intervals and an option to take notes. Push notifications will be sent for upcoming course start dates and assessments. The main purpose is so students can have a simple place to pre-plan their term and also prioritize their studying. App keeps track of study sessions so student can track total time studying.
+College Made Simple Android 
+
+Application used for creating and tracking terms/course/assessments. Includes study timer with mindfulnes reminder intervals and an option to take notes. Push notifications will be sent for upcoming course start dates and assessments. The main purpose is so students can have a simple place to pre-plan their term and also prioritize their studying. App keeps track of study sessions so student can track total time studying.
 
 Getting Started
 Open project files in Android Studio. Project utilizes SQLite so DB functionality is local.
