@@ -5,52 +5,38 @@ Getting Started
 Open project files in Android Studio. Project utilizes SQLite so DB functionality is local.
 
 Prerequisites
-Install latest version of 
+Install latest version of Android Studio. Minimum SDK is 15, target is 29.
 
-Give examples
 Installing
-A step by step series of examples that tell you how to get a development env running
+- Install Android Studio 3.5.3. Clone repository and open in Android. All files, including Gradle Build are included and should ge the project up and running.
 
-Say what the step will be
+Using
+1. Open app and click start. There is an option for help that will give you instructions on how to use the app.
+2. Add a term by clicking the add term button, or, click on study session and view/start study sessions with minfulness intervals.
+3. Once new term is added, click on the added term of choice in the recycler view and you will ba taken to the Course Activity. Here you can view courses associated with term. Add course, or click on course that is already added.
+4. If you click on a course in the recycler view, you will be taken to a page that lets you edit the information of the course. There is also an option here to view/add assessments.
+5. View or add assessment page that will be directly associated with the course. Push notifications will be sent for course start dates and upcoming assessments.
 
-Give the example
-And repeat
-
-until finished
-End with an example of getting some data out of the system or using it for a little demo
-
-Running the tests
-Explain how to run the automated tests for this system
-
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
 Deployment
-Add additional notes about how to deploy this on a live system
+App will be deployed on Google Play. For testing purposes, a Pixel 2 and Pixel 3 emulator with an SDK of 29 were used.
+
 
 Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
+Jetpack - Room Persistency Library
+Gradle - Dependency Management
+
 Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
 Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+*
 
 Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+Nick Jerrems 
+
 
 License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+*
 
 Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+Thanks to those who helped me figure out Room. It was a learning curve.
