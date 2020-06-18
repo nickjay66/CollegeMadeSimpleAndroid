@@ -51,10 +51,25 @@ public class NewTermActivity extends AppCompatActivity {
                     setResult(RESULT_OK, replyIntent);
                 }
                 //Add more switch statements to throw alert messages
-                if (start.contains("/") || end.contains("/")) {
+                if (start.contains("/") || end.contains("/") || !start.contains("-") || !end.contains("-")) {
                     AlertDialog alertDialog = new AlertDialog.Builder(NewTermActivity.this).create();
                     alertDialog.setTitle("Error");
                     alertDialog.setMessage("Please format date yyyy-MM-dd");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    alertDialog.show();
+                    //Toast.makeText(getApplicationContext(), "Please format date mm-dd-yyyy", Toast.LENGTH_LONG).show();
+                }
+
+                if (Integer.parseInt(start.substring(0, 3)) > Integer.parseInt(end.substring(0,3))) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(NewTermActivity.this).create();
+                    alertDialog.setTitle("Error");
+                    alertDialog.setMessage("start date cannot be after end date");
 
                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

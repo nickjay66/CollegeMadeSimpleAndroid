@@ -7,9 +7,11 @@ import androidx.lifecycle.LiveData;
 
 import com.example.c195pa.DAO.AssessmentDao;
 import com.example.c195pa.DAO.CourseDao;
+import com.example.c195pa.DAO.StudySessionDao;
 import com.example.c195pa.DAO.TermDao;
 import com.example.c195pa.Entities.Assessment;
 import com.example.c195pa.Entities.Course;
+import com.example.c195pa.Entities.StudySession;
 import com.example.c195pa.Entities.Term;
 
 import java.util.ArrayList;
@@ -22,9 +24,11 @@ public class RoomRepository {
     private static TermDao mTermDao;
     private static CourseDao mCourseDao;
     private static AssessmentDao mAssessmentDao;
+    private static StudySessionDao mStudySessionDao;
     private LiveData<List<Term>> mAllTerms;
     private LiveData<List<Course>> mAllCourses;
     private LiveData<List<Assessment>> mAllAssessments;
+    private LiveData<List<StudySession>> mAllStudySessions;
     private RoomDatabase mRoomDB;
     private String name;
     private String start;
@@ -40,9 +44,12 @@ public class RoomRepository {
         mTermDao = db.termDao();
         mCourseDao = db.courseDao();
         mAssessmentDao = db.assessmentDao();
+        mStudySessionDao = db.studySessionDao();
+
         mAllTerms = mTermDao.getAllTerms();
         mAllCourses = mCourseDao.getAllCourses();
         mAllAssessments = mAssessmentDao.getAllAssessments();
+        mAllStudySessions = mStudySessionDao.getAllStudySessions();
 
     }
 
@@ -105,22 +112,15 @@ public class RoomRepository {
 
     public void updateAssessment(Assessment assessment) {new updateAsyncTaskAssessment(mAssessmentDao).execute(assessment); }
 
-    /*/Part of Google Tutorial. I don't think I need it.
-    private static class insertAsyncTask extends AsyncTask<Term, Void, Void> {
 
+    //StudySession Methods
+    public LiveData<List<StudySession>> getlAllStudySessions() {return mStudySessionDao.getAllStudySessions();}
 
-        private TermDao mAsyncTaskDao;
+    public void insertStudySession(StudySession studySession) {new insertAsyncTaskForStudySession(mStudySessionDao).execute(studySession);}
 
-        insertAsyncTask(TermDao dao) {
-            mAsyncTaskDao = dao;
-        }
+    public void deleteStudySession() { new deleteAsyncTaskForStudySession(mStudySessionDao).execute();}
 
-        @Override
-        protected Void doInBackground(final Term... params) {
-            mAsyncTaskDao.insert(params[0]);
-            return null;
-        }
-    }/*/
+    public void updateStudySession(StudySession studySession) { new updateAsyncTaskStudySession(mStudySessionDao).execute(studySession); }
 
     private static class insertAsyncTask extends AsyncTask<Term, Void, Void> {
 
@@ -138,6 +138,21 @@ public class RoomRepository {
 
     }
 
+    private static class deleteAsyncTaskForTerm extends AsyncTask<String, Void, Void> {
+
+        private TermDao mTermDao;
+
+        deleteAsyncTaskForTerm(TermDao dao) {
+            mTermDao = dao;
+        }
+        @Override
+        protected Void doInBackground(String... strings) {
+            mTermDao.deleteByTermName(strings[0]);
+            return null;
+        }
+    }
+
+    //Course Async Tasks
     private static class insertAsyncTaskForCourse extends AsyncTask<Course, Void, Void> {
 
         private CourseDao mCourseAsyncTaskDao;
@@ -171,19 +186,6 @@ public class RoomRepository {
         }
     }
 
-    private static class deleteAsyncTaskForTerm extends AsyncTask<String, Void, Void> {
-
-        private TermDao mTermDao;
-
-        deleteAsyncTaskForTerm(TermDao dao) {
-            mTermDao = dao;
-        }
-        @Override
-        protected Void doInBackground(String... strings) {
-            mTermDao.deleteByTermName(strings[0]);
-            return null;
-        }
-    }
 
     private static class deleteAsyncTaskForCourse extends AsyncTask<Integer, Void, Void> {
 
@@ -197,6 +199,8 @@ public class RoomRepository {
         }
     }
 
+
+    //Assessment Async Tasks
     private static class insertAsyncTaskForAssessment extends AsyncTask<Assessment, Void, Void> {
 
         private AssessmentDao mAssessmentDao;
@@ -237,6 +241,52 @@ public class RoomRepository {
         @Override
         protected Void doInBackground(Assessment... params) {
             mAssessmentAsyncTaskDao.updateAssessment(params[0]);
+            return null;
+        }
+    }
+
+
+    //StudySession Async Tasks
+    private static class insertAsyncTaskForStudySession extends AsyncTask<StudySession, Void, Void> {
+
+        private StudySessionDao mStudySessionDao;
+
+        insertAsyncTaskForStudySession(StudySessionDao dao) {
+            mStudySessionDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final StudySession... params) {
+            mStudySessionDao.insertStudySession(params[0]);
+            return null;
+        }
+
+    }
+
+    private static class deleteAsyncTaskForStudySession extends AsyncTask<Integer, Void, Void> {
+
+        private StudySessionDao mStudySessionDao;
+
+        deleteAsyncTaskForStudySession(StudySessionDao dao) { mStudySessionDao = dao; }
+        @Override
+        protected Void doInBackground(Integer... integers) {
+            mStudySessionDao.deleteSession();
+            return null;
+        }
+    }
+
+    private static class updateAsyncTaskStudySession extends AsyncTask<StudySession, Void, Void> {
+
+        private StudySessionDao mStudySessionDao;
+
+        updateAsyncTaskStudySession(StudySessionDao dao) {
+            mStudySessionDao = dao;
+        }
+
+
+        @Override
+        protected Void doInBackground(StudySession... params) {
+            mStudySessionDao.updateStudySession(params[0]);
             return null;
         }
     }

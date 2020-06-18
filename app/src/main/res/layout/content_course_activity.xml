@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightPink"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".CourseActivity"
     tools:showIn="@layout/activity_course_activity">
@@ -13,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,6 +23,7 @@
         android:id="@+id/startDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Term" />
@@ -29,6 +32,7 @@
         android:id="@+id/endDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startDateText" />
@@ -55,6 +59,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
         android:layout_marginBottom="30dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/add_edit_courses_for_term"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,6 +73,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/nunito_sans"
+        android:backgroundTint="@color/teenyGreen"
         android:text="@string/delete_term"
         android:onClick="DeleteTerm"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -28,6 +28,9 @@
         <item name="android:padding">16dp</item>
 
     </style>
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/design_default_color_primary_dark</item>
+    </style>
 
     <style name="button_style" parent="android:style/Widget.Material.Button">
         <item name="android:layout_width">match_parent</item>

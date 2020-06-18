@@ -28,6 +28,8 @@ import com.example.c195pa.Entities.Assessment;
 import com.example.c195pa.Entities.Course;
 import com.example.c195pa.View.AssessmentViewModel;
 import com.example.c195pa.View.CourseViewModel;
+import com.example.c195pa.View.HelpActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     String currentDate = sdf.format(Calendar.getInstance().getTime());
     List<Course> Courses;
     List<Assessment> Assessments;
+    public static final int HELP_ACTIVITY_REQUEST_CODE = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = findViewById(R.id.help);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(new Intent(view.getContext(), HelpActivity.class), HELP_ACTIVITY_REQUEST_CODE);
+            }
+        });
 
     }
 
@@ -75,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         Date eDate = courseCheck.getEndDate();
                         String startDate = sdf.format(sDate);
                         String endDate = sdf.format(eDate);
-                        if (startDate.equals(currentDate)|| endDate.equals(currentDate)) {
+                        if (startDate.equals(currentDate) || endDate.equals(currentDate)) {
                             addNotification(1);
                         }
                     }
@@ -126,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             // Add as notification
             NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             manager.notify(0, builder.build());
-        } else  {
+        } else {
             NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             manager.notify(0, builder2.build());
         }
@@ -134,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void createNotificationChannel() {
 
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Personal Notifications";
             String description = "Include all the personal notifications";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
@@ -172,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchTerm(View view) {
-        Toast.makeText(getApplicationContext(),"Click on term to see courses assigned to term", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, TermScreenActivity.class);
         startActivity(intent);
 

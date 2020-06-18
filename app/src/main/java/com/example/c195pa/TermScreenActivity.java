@@ -1,5 +1,6 @@
 package com.example.c195pa;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -8,6 +9,7 @@ import com.example.c195pa.View.TermViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -63,6 +65,21 @@ public class TermScreenActivity extends AppCompatActivity implements RoomAdapter
                 startActivityForResult(new Intent(view.getContext(), NewTermActivity.class), NEW_TERM_ACTIVITY_REQUEST_CODE);
             }
         });
+/*
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder.setTitle("Welcome!");
+        builder.setMessage("- Add term in the lower right corner\n" +
+                "- Click on term once created to access courses\n" +
+                "- Click study session if you want to start a timer that includes mindfulness reminders\n");
+        builder.setNeutralButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show(); */
     }
 
 
@@ -89,7 +106,7 @@ public class TermScreenActivity extends AppCompatActivity implements RoomAdapter
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_not_saved,
-                    Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -99,7 +116,7 @@ public class TermScreenActivity extends AppCompatActivity implements RoomAdapter
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         String title1 = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.textView)).getText().toString();
 
-        Toast.makeText(getApplicationContext(), R.string.course_directions, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.course_directions, Toast.LENGTH_SHORT).show();
         Term term = adapter.getItem(position);
         int termId = term.getId();
         Date sD = term.getStartDate();
@@ -113,6 +130,11 @@ public class TermScreenActivity extends AppCompatActivity implements RoomAdapter
         intent.putExtra("end", endDate);
         intent.putExtra("position", termId);
         startActivity(intent);
+    }
+
+    public void launchStudy(View view) {
+        Intent studyIntent = new Intent(this, StudyActivity.class);
+        startActivity(studyIntent);
     }
 }
 

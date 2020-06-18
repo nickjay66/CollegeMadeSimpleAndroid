@@ -82,7 +82,6 @@ public class CourseActivity extends AppCompatActivity implements CourseAdapter.O
         });
 
 
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,10 +101,10 @@ public class CourseActivity extends AppCompatActivity implements CourseAdapter.O
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             Date start = null;
-            Date end= null;
+            Date end = null;
             try {
                 start = dateFormat.parse(data.getStringExtra(AddCourseActivity.EXTRA_REPLY2));
-                end= dateFormat.parse(data.getStringExtra(AddCourseActivity.EXTRA_REPLY3));
+                end = dateFormat.parse(data.getStringExtra(AddCourseActivity.EXTRA_REPLY3));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -136,14 +135,13 @@ public class CourseActivity extends AppCompatActivity implements CourseAdapter.O
     }
 
 
-
     @Override
     public void onCourseClick(final int position) {
         //This gets what is clicked and turns it into string. On next screen, send string in query to auto fill data
         final RecyclerView recyclerView = findViewById(R.id.recyclerview_course);
         String title1 = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.textView)).getText().toString();
         Toast.makeText(getApplicationContext(), title1, Toast.LENGTH_SHORT).show();
-        final Intent intent = new  Intent(this, EditCourseActivity.class);
+        final Intent intent = new Intent(this, EditCourseActivity.class);
 
         SimpleDateFormat sDF = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Course course = adapter.getItem(position);
@@ -176,7 +174,7 @@ public class CourseActivity extends AppCompatActivity implements CourseAdapter.O
         intent.putExtra("courseId", courseId);
         startActivityForResult(intent, NEW_COURSE_ACTIVITY_REQUEST_CODE);
 
-        }
+    }
 
 
     public void DeleteTerm(View view) {

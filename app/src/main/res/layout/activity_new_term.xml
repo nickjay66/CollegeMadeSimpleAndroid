@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightPink"
     android:orientation="vertical"
     android:padding="24dp">
 
     <EditText
         android:id="@+id/edit_word"
         style="@style/text_view_style"
+        android:fontFamily="@font/nunito_sans"
         android:hint="@string/term_name"
         android:inputType="textAutoComplete" />
 
@@ -16,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/nunito_sans"
         android:hint="@string/date_hint"
         android:inputType="date" />
 
@@ -24,11 +27,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/date_hint"
+
+        android:fontFamily="@font/nunito_sans"
+        android:hint="@string/date_hint2"
         android:inputType="date" />
 
     <Button
         android:id="@+id/button_save"
         style="@style/button_style"
+        android:background="@color/teenyGreen"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/button_save" />
 </LinearLayout>

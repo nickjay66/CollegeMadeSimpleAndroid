@@ -5,60 +5,83 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_wgu_owl_round"
+        android:label="@string/cms"
+        android:roundIcon="@mipmap/ic_launcher_cms_round"
+        android:screenOrientation="fullSensor"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="fullSensor">
-        <activity android:name=".EditAssessmentActivity"
-                  android:parentActivityName=".AssessmentActivity"
-            android:screenOrientation="fullSensor"></activity>
-        <activity android:name=".AddAssessmentActivity"
-                  android:parentActivityName=".TermScreenActivity"
-            android:screenOrientation="fullSensor"/>
+        android:theme="@style/AppTheme">
+        <activity android:name=".View.HelpActivity"></activity>
+        <activity
+            android:name=".ReportActivity"
+            android:parentActivityName=".StudyActivity"></activity>
+        <activity
+            android:name=".TimerActivity"
+            android:label="Study Timer"
+            android:parentActivityName=".StudyActivity"/>
+        <activity
+            android:name=".StudyActivity"
+            android:label="Your Study Sessions"
+            android:parentActivityName=".TermScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".EditAssessmentActivity"
+            android:parentActivityName=".AssessmentActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".AddAssessmentActivity"
+            android:parentActivityName=".TermScreenActivity"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".AssessmentActivity"
             android:label="@string/title_activity_assessment"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".TermScreenActivity"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddCourseActivity"
             android:label="@string/title_activity_add_course"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".TermScreenActivity"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EditCourseActivity"
             android:label="EditCourseActivity"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".TermScreenActivity"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CourseActivity"
             android:label="Courses"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".TermScreenActivity"
-            android:screenOrientation="fullSensor"/>
-        <activity android:name=".NewTermActivity"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NewTermActivity"
+            android:screenOrientation="fullSensor"
+            android:parentActivityName=".TermScreenActivity"
+            />
         <activity
             android:name=".TermScreenActivity"
             android:label="@string/title_activity_term_screen"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

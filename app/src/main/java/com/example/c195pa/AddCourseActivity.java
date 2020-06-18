@@ -110,6 +110,7 @@ public class AddCourseActivity extends AppCompatActivity {
                 Intent replyIntent = new Intent();
                 String startDate = mStartDate.getText().toString();
                 String endDate = mEndDate.getText().toString();
+
                 if (TextUtils.isEmpty(mCourseName.getText())) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
@@ -135,23 +136,20 @@ public class AddCourseActivity extends AppCompatActivity {
 
                 //Add more switch statements to throw alert messages
                 if (startDate.contains("/") || endDate.contains("/")) {
-                    AlertDialog alertDialog = new AlertDialog.Builder(AddCourseActivity.this).create();
-                    alertDialog.setTitle("Error");
-                    alertDialog.setMessage("Please format date yyyy-MM-dd");
-
-                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                    alertDialog.show();
+                    makeToast(0);
+                } else if (mStartDate.getText().toString().isEmpty() || mEndDate.getText().toString().isEmpty()) {
+                    makeToast(1);
+                    //Toast.makeText(getApplicationContext(), "Please format date mm-dd-yyyy", Toast.LENGTH_LONG).show();
+                } else if (Integer.parseInt(startDate.substring(0,3)) > Integer.parseInt(endDate.substring(0,3))) {
+                    makeToast(2);
                     //Toast.makeText(getApplicationContext(), "Please format date mm-dd-yyyy", Toast.LENGTH_LONG).show();
                 } else {
                     finish();
                 }
+
             }
         });
+
 
 /*/
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -166,7 +164,27 @@ public class AddCourseActivity extends AppCompatActivity {
     }
 
 
-   // public void saveCourse(View view) {
+       public void makeToast(int id) {
+            String toastString = "";
+            if (id == 1) {
+                toastString = "Please add both dates in the correct format";
+            } else if(id == 2) {
+                toastString = "Start date cannot be greater than end date";
+            } else if (id == 0) {
+                toastString = "Please format date yyyy-MM-dd";
+            }
+           AlertDialog alertDialog = new AlertDialog.Builder(AddCourseActivity.this).create();
+           alertDialog.setTitle("Error");
+           alertDialog.setMessage(toastString);
+
+           alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int which) {
+                   Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+               }
+           });
+
+           alertDialog.show();
+       }
 
 
 

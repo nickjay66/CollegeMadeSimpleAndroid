@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightPink"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AddCourseActivity"
     tools:showIn="@layout/activity_add_course">
@@ -16,6 +17,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:text="@string/course_name"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,6 +28,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/start_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/courseTextView1" />
@@ -37,6 +40,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/end_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startTextView1" />
@@ -48,6 +52,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/course_status"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
@@ -59,6 +64,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/course_mentor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView71" />
@@ -70,6 +76,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/mentor_phone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView81" />
@@ -81,6 +88,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/mentor_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView91" />
@@ -92,6 +100,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:text="@string/course_notes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView101" />
@@ -103,6 +112,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/name_hint"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/courseTextView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/courseTextView1" />
@@ -114,6 +124,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/date_hint"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/startTextView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/startTextView1" />
@@ -124,7 +135,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="@string/date_text"
+        android:hint="@string/date_hint2"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView51"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView51" />
@@ -136,6 +148,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/course_status_hint"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView71"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView71" />
@@ -147,6 +160,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/mentor_name_hint"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView81"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView81" />
@@ -158,6 +172,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/phone_hint"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView91"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView91" />
@@ -169,6 +184,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/email_hint"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView101"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView101" />
@@ -180,6 +196,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView111"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView111" />
@@ -190,6 +207,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/button_save"
+        android:fontFamily="@font/nunito_sans"
+        android:backgroundTint="@color/teenyGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noteEditText1" />

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">C195PA</string>
+    <string name="app_name">College Made Simple</string>
     <string name="action_settings">Settings</string>
-    <string name="login_screen_text">Login</string>
+    <string name="login_screen_text">Start</string>
     <string name="night_owl">Night Owl</string>
     <string name="title_activity_term_screen">TermScreen</string>
     <string name="hint_word">Word...</string>
@@ -21,12 +21,13 @@
     <string name="title_activity_add_course">AddCourseActivity</string>
     <string name="course_name">Course Name</string>
     <string name="course_status">Status</string>
-    <string name="course_mentor">Course Mentor</string>
-    <string name="mentor_phone">Mentor Phone</string>
-    <string name="mentor_email">Mentor Email</string>
+    <string name="course_mentor">Course Instructor</string>
+    <string name="mentor_phone">Instructor Phone</string>
+    <string name="mentor_email">Instructor Email</string>
     <string name="course_notes">Course Notes</string>
     <string name="name_hint">Name</string>
-    <string name="date_hint">yyyy-MM-dd</string>
+    <string name="date_hint">Start: yyyy-MM-dd</string>
+    <string name="date_hint2">End: yyyy-MM-dd</string>
     <string name="course_status_hint">Course Status</string>
     <string name="mentor_name_hint">Mentor Name</string>
     <string name="phone_hint">(000)-000-0000</string>
@@ -42,4 +43,18 @@
     <string name="choose_type_of_assessment">Choose Type of Assessment:</string>
     <string name="view_assessments">View Assessments</string>
     <string name="share">Share</string>
+    <string name="study_sessions">Study Sessions and Timer</string>
+    <string name="title_activity_study">StudyActivity</string>
+    <string name="start_new_study_session">Start New Study Session</string>
+    <string name="create_report">Create Report</string>
+    <string name="generate_report">Generate Report</string>
+    <string name="cms">College Made Simple</string>
+
+    <string-array name="mindful_mins">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+    </string-array>
 </resources>
